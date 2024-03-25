@@ -15,8 +15,6 @@ public class MainActivity extends AppCompatActivity {
     TextView outputText;
     EditText inputText;
 
-    double[] values = { 3.5, 4.4, 9.0, 1.2, 6.5, 12.0 };
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,17 +23,22 @@ public class MainActivity extends AppCompatActivity {
         outputText = findViewById(R.id.outText);
         inputText = findViewById(R.id.inputText);
 
-        double version = 3.14159;
-        int year = 2024;
-        String author = "Linus";
+    }
+
+
+    public void calculate(View view) {
+        double[] values = { 3.5, 4.4, 9.0, 1.2, 6.5, 12.0 };
+
+        double sum = 0;
+        for (int i = 0; i < values.length; i++){
+            sum += values[i];
+        }
+
+        double mean = sum/ values.length;
 
         outputText.setText(String.format(
-                "Appens version %.1f år %d by %s",
-                version,
-                year,
-                author)
+                "medelvärdet är", sum)
         );
-
     }
 
     public void buttonHandler(View view) {
